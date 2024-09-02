@@ -1,14 +1,15 @@
-
-# Thesis wizard
+#
 
 <div align="center">
 <img src="logo_wizard/white_logo.svg" width="100" height="100" alt="logo">
+</div>
+
+## Thesis wizard
 
 <br/>
 
 ![image](https://img.shields.io/badge/Status-Design-blue)
 ![image](https://img.shields.io/badge/Version-0.0.1-blue)
-</div>
 
 ## Problem
 
