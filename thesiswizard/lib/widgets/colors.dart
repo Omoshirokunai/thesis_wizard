@@ -1,18 +1,13 @@
-// file containing all the colors used in the app
-
 import 'package:flutter/material.dart';
 
 class AppColors {
-  static const Color primary = Color(0xFF6200EE);
-  static const Color primaryVariant = Color(0xFF3700B3);
-  static const Color secondary = Color(0xFF03DAC6);
-  static const Color secondaryVariant = Color(0xFF018786);
-  static const Color background = Color(0xFFFFFFFF);
-  static const Color surface = Color(0xFFFFFFFF);
-  static const Color error = Color(0xFFB00020);
-  static const Color onPrimary = Color(0xFFFFFFFF);
-  static const Color onSecondary = Color(0xFF000000);
-  static const Color onBackground = Color(0xFF000000);
-  static const Color onSurface = Color(0xFF000000);
-  static const Color onError = Color(0xFFFFFFFF);
+  static const Color background = Color(0xFF111111);
+  static const Color accent = Color(0xFFFF6B6B);
+  static const Color panels = Color(0xFF000000);
+  static const Color borders = Color(0xFF292929);
+  static const Color text = Color(0xFFDADADA);
+  static const Color green = Color(0xFF4CAf59);
+  static const Color red = Color(0xFFD72638);
+  static const Color yellow = Color(0xFFF7C948);
+  static const Color blue = Color(0xFF2E3192);
 }
