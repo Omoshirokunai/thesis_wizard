@@ -47,6 +47,8 @@ Integrating Ai into the word processor and tracking AI usage to provide full dis
 - [ ] Word count goals
 - [ ] User settings
 - [ ] Export to PDF
+- [ ] Community plugins support
+  - [ ] Community discord
 
 ### Future work
 
