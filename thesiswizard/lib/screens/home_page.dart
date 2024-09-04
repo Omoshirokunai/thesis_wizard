@@ -8,6 +8,7 @@ import '../widgets/sidebar.dart';
 import '../widgets/wysiwyg_editor.dart';
 import '../widgets/preview_page.dart';
 import '../widgets/status_bar.dart';
+import '../widgets/colors.dart';
 
 class MyHomePage extends StatefulWidget {
   @override
@@ -39,7 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Center(child: Text(filename)),
-        backgroundColor: const Color.fromARGB(245, 34, 34, 34),
+        backgroundColor: AppColors.background,
         toolbarHeight: 35,
         actions: [
           IconButton(
