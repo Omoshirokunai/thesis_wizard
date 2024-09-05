@@ -71,18 +71,22 @@ import 'widgets/colors.dart';
 import 'dart:io';
 import 'dart:ui';
 import 'package:bitsdojo_window/bitsdojo_window.dart';
+import 'screens/splash_screen.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   // Check if the app is running on a desktop platform
   if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
+    appWindow.title = 'Thesis Wizard';
+    // appWindow.hide();
     runApp(MyApp());
+    // runApp(MyApp());
     //get screen size
     doWhenWindowReady(() {
       const initialSize = Size(1920.0, 1080.0);
       const minsize = Size(1020.0, 1000.0);
-      appWindow.minSize = minsize;
-      // appWindow.hide();
       appWindow.size = initialSize;
+      appWindow.minSize = minsize;
       appWindow.alignment = Alignment.center;
       appWindow.show();
     });
