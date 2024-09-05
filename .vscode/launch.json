@@ -1,0 +1,48 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "thesiswizard",
+            "cwd": "thesiswizard",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "thesiswizard (profile mode)",
+            "cwd": "thesiswizard",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "thesiswizard (release mode)",
+            "cwd": "thesiswizard",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "images",
+            "cwd": "thesiswizard/assets/images",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "images (profile mode)",
+            "cwd": "thesiswizard/assets/images",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "images (release mode)",
+            "cwd": "thesiswizard/assets/images",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        }
+    ]
+}
