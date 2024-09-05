@@ -17,8 +17,6 @@ dependencies:
   http: ^1.2.2
   solar_icons: ^0.0.5
   desktop_split_pane: ^1.0.3
-  window_manager: ^0.4.2
-  # flutter_svg: ^2.0.5
 
 dev_dependencies:
   flutter_test:
@@ -39,9 +37,10 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/images/white_logo.png
+    - assets/images/white_logo.svg
     - assets/images/black_logo.svg
     - assets/images/icon.png
+    - assets/images/icon_1.png
 
   fonts:
     - family: IBM Plex Sans
@@ -74,26 +73,26 @@ flutter:
           style: italic
     - family: Noto Serif
       fonts:
-        - asset: assets/fonts/Noto_Serif/NotoSerif-Italic-VariableFont_wdth,wght.ttf
+        - asset: assets/fonts/Noto_Serif/NotoSerif-Italic-VariableFont_wght.ttf
           style: italic
-        - asset: assets/fonts/Noto_Serif/NotoSerif-VariableFont_wdth,wght.ttf
+        - asset: assets/fonts/Noto_Serif/NotoSerif-Regular-VariableFont_wght.ttf
           style: normal
     - family: Pt Serif
       fonts:
-        - asset: assets/fonts/PT_Serif/PTSerif-Bold.ttf
+        - asset: assets/fonts/Pt_Serif/PTSerif-Bold.ttf
           weight: 700
-        - asset: assets/fonts/PT_Serif/PTSerif-BoldItalic.ttf
+        - asset: assets/fonts/Pt_Serif/PTSerif-BoldItalic.ttf
           weight: 700
           style: italic
-        - asset: assets/fonts/PT_Serif/PTSerif-Italic.ttf
+        - asset: assets/fonts/Pt_Serif/PTSerif-Italic.ttf
           style: italic
-        - asset: assets/fonts/PT_Serif/PTSerif-Regular.ttf
+        - asset: assets/fonts/Pt_Serif/PTSerif-Regular.ttf
           style: normal
     - family: Roboto Serif
       fonts:
-        - asset : assets/fonts/Roboto_Serif/RobotoSerif-Italic-VariableFont_GRAD,opsz,wdth,wght.ttf
+        - asset : assets/fonts/Roboto_Serif/RobotoSerif-Italic-VariableFont_wght.ttf
           style: italic
-        - asset : assets/fonts/Roboto_Serif/RobotoSerif-VariableFont_GRAD,opsz,wdth,wght.ttf
+        - asset : assets/fonts/Roboto_Serif/RobotoSerif-Regular-VariableFont_wght.ttf
           style: normal
     - family: newtx
       fonts:

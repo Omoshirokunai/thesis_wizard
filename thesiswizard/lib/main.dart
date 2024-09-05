@@ -67,9 +67,15 @@
 import 'package:flutter/material.dart';
 import 'screens/home_page.dart';
 import 'screens/welcome_page.dart';
+import 'widgets/colors.dart';
+import 'dart:io';
+import 'dart:ui';
 
-void main() {
-  runApp(MyApp());
+void main() async {
+  // Check if the app is running on a desktop platform
+  if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
+    runApp(MyApp());
+  }
 }
 
 class MyApp extends StatelessWidget {
@@ -79,8 +85,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Llama Integration',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-            seedColor: const Color.fromARGB(255, 19, 19, 19)),
+        primaryColor: AppColors.accent,
+        scaffoldBackgroundColor: AppColors.background,
         useMaterial3: false,
       ), // Use a dark theme for the black background
       initialRoute: '/',
@@ -88,6 +94,33 @@ class MyApp extends StatelessWidget {
         '/': (context) => WelcomePage(),
         '/home': (context) => MyHomePage(),
       },
+      builder: (context, child) {
+        if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
+          _setWindowSize(context); // Set window size on desktop platforms
+        }
+        return child!;
+      },
     );
   }
+}
+
+// Function to set window size and restrict resizing below 500x500
+// Function to set window size and restrict resizing below 500x500
+void _setWindowSize(BuildContext context) {
+  final window = WidgetsBinding.instance.window;
+
+  // Minimum size
+  const minSize = Size(500, 500);
+
+  // Enforce minimum window size
+  window.onMetricsChanged = () {
+    final windowSize = window.physicalSize / window.devicePixelRatio;
+
+    // If the window size is smaller than the min size, reset it
+    if (windowSize.width < minSize.width ||
+        windowSize.height < minSize.height) {
+      window.setMinimumSize(minSize);
+      window.setSize(minSize);
+    }
+  };
 }

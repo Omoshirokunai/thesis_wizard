@@ -39,12 +39,28 @@ class _MyHomePageState extends State<MyHomePage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Center(child: Text(filename)),
-        backgroundColor: AppColors.background,
-        toolbarHeight: 35,
+        title: Row(
+          children: [
+            Padding(
+                padding: const EdgeInsets.only(right: 8.0),
+                child: Image.asset(
+                  'assets/images/white_logo.png',
+                  height: 30,
+                )),
+            Center(
+                child: Text(filename,
+                    style: const TextStyle(
+                        fontSize: 20,
+                        color: Colors.white,
+                        fontStyle: FontStyle.italic,
+                        fontFamily: 'IBM Plex Sans'))),
+          ],
+        ),
+        backgroundColor: AppColors.primary,
+        toolbarHeight: 40,
         actions: [
           IconButton(
-            icon: Icon(SolarIconsOutline.card),
+            icon: Icon(SolarIconsBold.card, size: 10, color: Colors.white),
             onPressed: () {
               setState(() {
                 _isSidebarVisible = !_isSidebarVisible;
@@ -52,7 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
             },
           ),
           IconButton(
-            icon: Icon(Icons.code),
+            icon: Icon(Icons.code, size: 20, color: Colors.white),
             onPressed: () {
               setState(() {
                 _isEditorVisible = !_isEditorVisible;
@@ -67,12 +83,12 @@ class _MyHomePageState extends State<MyHomePage> {
               });
             },
           ),
-          IconButton(
-            icon: Icon(Icons.print),
-            onPressed: () {
-              // Handle print functionality here
-            },
-          ),
+          // IconButton(
+          //   icon: Icon(Icons.print),
+          //   onPressed: () {
+          //     // Handle print functionality here
+          //   },
+          // ),
         ],
       ),
       body: Column(
