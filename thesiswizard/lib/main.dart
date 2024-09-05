@@ -71,7 +71,7 @@ import 'widgets/colors.dart';
 import 'dart:io';
 import 'dart:ui';
 import 'package:bitsdojo_window/bitsdojo_window.dart';
-import 'screens/splash_screen.dart';
+// import 'screens/splash_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -83,11 +83,13 @@ void main() async {
     // runApp(MyApp());
     //get screen size
     doWhenWindowReady(() {
-      const initialSize = Size(1920.0, 1080.0);
-      const minsize = Size(1020.0, 1000.0);
-      appWindow.size = initialSize;
+      // appWindow.position = Offset(0, 0);
+      // const initialSize = Size(900, 800.0);
+      const minsize = Size(800, 600);
+      appWindow.maximize();
+      // appWindow.size = initialSize;
       appWindow.minSize = minsize;
-      appWindow.alignment = Alignment.center;
+      // appWindow.alignment = Alignment.bottomLeft;
       appWindow.show();
     });
   }
