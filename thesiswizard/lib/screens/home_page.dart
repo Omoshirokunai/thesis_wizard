@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 // import 'package:solar_icons/solar_icons.dart';
 import 'package:desktop_split_pane/desktop_split_pane.dart';
-import '../widgets/sidebar.dart';
 import '../widgets/wysiwyg_editor.dart';
 import '../widgets/preview_page.dart';
 import '../widgets/status_bar.dart';
@@ -20,7 +19,6 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   bool _isEditorVisible = true;
   bool _isPreviewVisible = true;
-  bool _isSidebarVisible = true;
   String filename = 'Untitled';
 
   List<double> _calculateFractions() {
@@ -31,7 +29,8 @@ class _MyHomePageState extends State<MyHomePage> {
     } else if (_isPreviewVisible) {
       return [1.0];
     } else {
-      return [];
+      _isEditorVisible = true;
+      return [1.0];
     }
   }
 
@@ -125,19 +124,13 @@ class _MyHomePageState extends State<MyHomePage> {
           Expanded(
             child: Row(
               children: [
-                // Sidebar(),
-                AnimatedContainer(
-                  duration: Duration(milliseconds: 300),
-                  width: _isSidebarVisible ? 60 : 0,
-                  child: _isSidebarVisible ? Sidebar() : null,
-                ),
                 // Expanded(
                 Padding(
                   padding: const EdgeInsets.only(right: 2.0),
                   child: Container(
                     color: AppColors.text,
                     child: SizedBox(
-                      width: MediaQuery.of(context).size.width - 42,
+                      width: MediaQuery.of(context).size.width - 7,
                       child: LayoutBuilder(
                         builder: (context, constraints) {
                           final fractions = _calculateFractions();

@@ -13,19 +13,21 @@ class WelcomePage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Column(
-              children: [
-                SvgPicture.asset(
-                  logo,
-                  semanticsLabel: 'Thesis wizard logo',
-                  colorFilter:
-                      ColorFilter.mode(AppColors.blue, BlendMode.srcIn),
-                ),
-                Text(
-                  'Welcome to Llama Integration',
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                ),
-              ],
+            Center(
+              child: Column(
+                children: [
+                  SvgPicture.asset(
+                    logo,
+                    semanticsLabel: 'Thesis wizard logo',
+                    colorFilter:
+                        ColorFilter.mode(AppColors.blue, BlendMode.srcIn),
+                  ),
+                  Text(
+                    'Welcome to Llama Integration',
+                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
             ),
             SizedBox(height: 40),
             ElevatedButton(
