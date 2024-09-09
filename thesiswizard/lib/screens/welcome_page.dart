@@ -1,7 +1,11 @@
 // lib/screens/welcome_page.dart
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:thesiswizard/widgets/colors.dart';
 
 class WelcomePage extends StatelessWidget {
+  final String logo = 'assets/images/white_logo.svg';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -9,9 +13,19 @@ class WelcomePage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              'Welcome to Llama Integration',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            Column(
+              children: [
+                SvgPicture.asset(
+                  logo,
+                  semanticsLabel: 'Thesis wizard logo',
+                  colorFilter:
+                      ColorFilter.mode(AppColors.blue, BlendMode.srcIn),
+                ),
+                Text(
+                  'Welcome to Llama Integration',
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                ),
+              ],
             ),
             SizedBox(height: 40),
             ElevatedButton(

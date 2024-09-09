@@ -2,13 +2,15 @@
 // import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:solar_icons/solar_icons.dart';
+import 'package:flutter_svg/svg.dart';
+// import 'package:solar_icons/solar_icons.dart';
 import 'package:desktop_split_pane/desktop_split_pane.dart';
 import '../widgets/sidebar.dart';
 import '../widgets/wysiwyg_editor.dart';
 import '../widgets/preview_page.dart';
 import '../widgets/status_bar.dart';
 import '../widgets/colors.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class MyHomePage extends StatefulWidget {
   @override
@@ -42,11 +44,15 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Row(
           children: [
             Padding(
-                padding: const EdgeInsets.only(right: 8.0),
-                child: Image.asset(
-                  'assets/images/white_logo.png',
-                  height: 30,
-                )),
+              padding: const EdgeInsets.only(right: 8.0),
+              child: SvgPicture.asset(
+                'assets/images/white_logo.svg',
+                width: 30,
+                height: 30,
+                semanticsLabel: 'Thesis wizard logo',
+                colorFilter: ColorFilter.mode(AppColors.blue, BlendMode.srcIn),
+              ),
+            ),
             Center(
                 child: Text(filename,
                     style: const TextStyle(
@@ -56,39 +62,62 @@ class _MyHomePageState extends State<MyHomePage> {
                         fontFamily: 'IBM Plex Sans'))),
           ],
         ),
-        backgroundColor: AppColors.primary,
+        backgroundColor: AppColors.background,
         toolbarHeight: 40,
         actions: [
-          IconButton(
-            icon: Icon(SolarIconsBold.card, size: 10, color: Colors.white),
-            onPressed: () {
-              setState(() {
-                _isSidebarVisible = !_isSidebarVisible;
-              });
-            },
-          ),
-          IconButton(
-            icon: Icon(Icons.code, size: 20, color: Colors.white),
-            onPressed: () {
-              setState(() {
-                _isEditorVisible = !_isEditorVisible;
-              });
-            },
-          ),
-          IconButton(
-            icon: Icon(Icons.visibility_off),
-            onPressed: () {
-              setState(() {
-                _isPreviewVisible = !_isPreviewVisible;
-              });
-            },
-          ),
-          // IconButton(
-          //   icon: Icon(Icons.print),
-          //   onPressed: () {
-          //     // Handle print functionality here
-          //   },
-          // ),
+          Padding(
+            padding: const EdgeInsets.only(right: 8.0),
+            child: Row(
+              children: [
+                IconButton(
+                  hoverColor: Colors.white,
+                  tooltip: 'Save as pdf',
+                  splashRadius: 20,
+                  icon: SvgPicture.asset(
+                    'assets/images/pdf.svg',
+                    width: 40,
+                    height: 40,
+                  ),
+                  onPressed: () {
+                    // Handle save functionality here
+                  },
+                ),
+                IconButton(
+                  hoverColor: Colors.white,
+                  tooltip: 'Editor',
+                  splashRadius: 20,
+                  icon: SvgPicture.asset(
+                    'assets/images/sidebar-code.svg',
+                    width: 40,
+                    height: 40,
+                  ),
+                  onPressed: () {
+                    // Handle showing editor functionality here
+                    setState(() {
+                      _isEditorVisible = !_isEditorVisible;
+                    });
+                  },
+                ),
+                IconButton(
+                  hoverColor: Colors.white,
+                  tooltip: 'Preview Page',
+                  splashRadius: 20,
+                  icon: SvgPicture.asset(
+                    'assets/images/expand-left.svg',
+                    width: 40,
+                    height: 40,
+                    // colorFilter:ColorFilter.mode(AppColors.blue, BlendMode.srcIn),
+                  ),
+                  onPressed: () {
+                    // Handle preview functionality here
+                    setState(() {
+                      _isPreviewVisible = !_isPreviewVisible;
+                    });
+                  },
+                ),
+              ],
+            ),
+          )
         ],
       ),
       body: Column(
@@ -96,30 +125,37 @@ class _MyHomePageState extends State<MyHomePage> {
           Expanded(
             child: Row(
               children: [
+                // Sidebar(),
                 AnimatedContainer(
                   duration: Duration(milliseconds: 300),
-                  width: _isSidebarVisible ? 40 : 0,
+                  width: _isSidebarVisible ? 60 : 0,
                   child: _isSidebarVisible ? Sidebar() : null,
                 ),
                 // Expanded(
-                SizedBox(
-                  width: MediaQuery.of(context).size.width - 50,
-                  child: LayoutBuilder(
-                    builder: (context, constraints) {
-                      final fractions = _calculateFractions();
-                      return fractions.isEmpty
-                          ? Container() // Show empty container if both are invisible
-                          : HorizontalSplitPane(
-                              constraints: constraints,
-                              separatorColor: Colors.black,
-                              separatorThickness: 4.0,
-                              fractions: fractions,
-                              children: [
-                                if (_isEditorVisible) WysiwygEditor(),
-                                if (_isPreviewVisible) PreviewPage(),
-                              ],
-                            );
-                    },
+                Padding(
+                  padding: const EdgeInsets.only(right: 2.0),
+                  child: Container(
+                    color: AppColors.text,
+                    child: SizedBox(
+                      width: MediaQuery.of(context).size.width - 42,
+                      child: LayoutBuilder(
+                        builder: (context, constraints) {
+                          final fractions = _calculateFractions();
+                          return fractions.isEmpty
+                              ? Container() // Show empty container if both are invisible
+                              : HorizontalSplitPane(
+                                  constraints: constraints,
+                                  separatorColor: Colors.black,
+                                  separatorThickness: 2.0,
+                                  fractions: fractions,
+                                  children: [
+                                    if (_isEditorVisible) WysiwygEditor(),
+                                    if (_isPreviewVisible) PreviewPage(),
+                                  ],
+                                );
+                        },
+                      ),
+                    ),
                   ),
                 ),
               ],
