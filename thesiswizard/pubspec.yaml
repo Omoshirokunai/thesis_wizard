@@ -17,11 +17,10 @@ dependencies:
   http: ^1.2.2
   iconsax: ^0.0.8
   desktop_split_pane: ^1.0.3
-  # sidebarx: ^0.17.1
-  # flutter_side_menu: ^0.5.3
+  flutter_quill: ^10.5.12
+  flutter_math_fork: ^0.7.2
   flutter_svg: ^2.0.10+1
   bitsdojo_window: ^0.1.6
-  # flutter_svg: ^2.0.5
 
 dev_dependencies:
   flutter_test:
