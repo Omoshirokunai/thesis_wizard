@@ -106,6 +106,10 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: AppColors.background,
         useMaterial3: false,
       ), // Use a dark theme for the black background
+      supportedLocales: [
+        const Locale('en', 'US'),
+        const Locale('en', 'UK'),
+      ],
       initialRoute: '/',
       routes: {
         '/': (context) => WelcomePage(),
